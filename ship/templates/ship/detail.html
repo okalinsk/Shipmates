@@ -1,27 +1,23 @@
-<img src="{{ department.department_logo }}">
+{% extends 'ship/base.html' %}
+{% block title %}detail{% endblock %}
+{% block body %}
+    <img src="{{ department.department_logo }}">
 
-<h1> {{ department.department_name }}</h1>
-<h2>{{ department.officer }}</h2>
+    <h1> {{ department.department_name }}</h1>
+    <h2>{{ department.officer }}</h2>
 
-{% if error_message %}
+
+    {% if error_message %}
     <p><strong>{{ error_message }}</strong></p>
-{% endif %}
+    {% endif %}
 
-<form action ="{% url 'ship:baknaz_team' department.id %}" method="post" >
-    {% csrf_token %}
     {% for soldier in department.soldier_set.all %}
-        <input type="radio" id="soldier{{ forloop.counter }}" name="soldier" value="{{ soldier.id }}">
-        <label for="soldier{{ forloop.counter }}">
-        {{ soldier.soldier_name }}
-        {{ soldier.rank }}
-        {%  if soldier.is_baknaz_team %}
-            <img src="http://i.imgur.com/b9b13Rd.png"/>
-        {% endif %}
-        </label><br>
+      <li> <label for="soldier{{ forloop.counter }}">
+            {{ soldier.soldier_name }}
+        </label></li>
     {% endfor %}
-   <input type="submit" value="Baknaz_team">
-</form>
 
+{% endblock %}
 
 
 

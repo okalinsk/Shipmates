@@ -38,6 +38,7 @@ products from Adafruit!
 #include <SPI.h>
 #include <Adafruit_PN532.h>
 
+
 // If using the breakout with SPI, define the pins for SPI communication.
 #define PN532_SCK  (2)
 #define PN532_MOSI (3)
@@ -114,7 +115,7 @@ void loop(void) {
     //Serial.print(uidLength, DEC);
     //Serial.print(" ");
     nfc.PrintHex(uid, uidLength);
-    
+    delay(300);
     /*
     if (uidLength == 4)
     {

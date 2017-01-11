@@ -1,26 +1,10 @@
-{#<!-- Loads the path to your static files-->#}
-{#{%  load staticfiles %}#}
-{#<link rel="stylesheet" type="text/css" href="{% static 'ship/style.css' %}" />#}
-{##}
-{#<nav class="navbar navbar-inverse">#}
-{#    <div class="container-fluid">#}
-{##}
-{#        <!--logo -->#}
-{#        <div class=navbar-header">#}
-{#            <a class="navbar-brand" href="{% url 'ship:index' %}">ship</a>#}
-{#            <a class="navbar-brand" href="{% url 'ship:records' %}">records</a>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{#</nav>#}
-{#{% if all_records %}#}
-{##}
-{#    <h3>Here are all the ship records</h3>#}
-{#    <ul>#}
-{#        {% for singlerecord in all_records %}#}
-{#        <li><a href="{% url 'ship:records' singlerecord.id %}">{{ singlerecord.tag_string}}, {{singlerecord.time_stamp}}, {{singlerecord.compartment }}</a></li>#}
-{#        {% endfor %}#}
-{#    </ul>#}
-{#{% else %}#}
-{#<h3>no records in database</h3>#}
-{#{% endif %}#}
+{% extends 'ship/base.html' %}
+{% block title %}records{% endblock %}
+{% block body %}
+    <h1>Here are all the ship records</h1>
+    <ul>
+        {% for singlerecord in all_records %}
+        <li>{{ singlerecord.tag_string}}, {{singlerecord.time_stamp}}, {{singlerecord.compartment }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
