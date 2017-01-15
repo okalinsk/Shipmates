@@ -5,7 +5,7 @@
     <h1>Here are the ship departments</h1>
     <ul>
         {% for department in all_departments %}
-        <li><a href="{% url 'ship:detail' department.id %}">{{ department.department_name }}</a></li>
+        <li><a href="{% url 'ship:details' department.id %}">{{ department.department_name }}</a></li>
         {% endfor %}
     </ul>
 

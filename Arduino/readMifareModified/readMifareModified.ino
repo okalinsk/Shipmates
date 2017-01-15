@@ -114,7 +114,13 @@ void loop(void) {
     //Serial.print("  UID Value: ");
     //Serial.print(uidLength, DEC);
     //Serial.print(" ");
-    nfc.PrintHex(uid, uidLength);
+   // nfc.PrintHexChar(uid, uidLength);
+    for(int i=0;i<uidLength;i++)
+    {
+   // Serial.print(RC522.serNum[i],DEC);
+    Serial.print(uid[i],HEX); //to print card detail in Hexa Decimal format
+    }
+    Serial.print("\n");
     delay(300);
     /*
     if (uidLength == 4)

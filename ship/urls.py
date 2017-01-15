@@ -5,16 +5,16 @@ app_name = 'ship'
 
 urlpatterns = [
     # /ship/
-    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^$', views.index, name='index'),
 
     # /ship/departments/
-    url(r'^departments$', views.DepartmentView.as_view(), name='departments'),
+    url(r'^departments$', views.departments, name='departments'),
 
     # /ship/departments/<department.id>/
-    url(r'^departments/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
+    url(r'^departments/(?P<department_id>[0-9]+)/$', views.details, name='details'),
 
 
-    url(r'^records$', views.RecordsView.as_view(), name='records'),
+    url(r'^records$', views.records, name='records'),
 
     # /ship/<department.id>/
     # url(r'^(?P<department_id>[0-9]+)/baknaz_team/$', views.baknaz_team, name='baknaz_team'),
